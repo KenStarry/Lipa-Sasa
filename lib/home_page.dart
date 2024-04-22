@@ -19,8 +19,7 @@ class _HomePageState extends State<HomePage> {
         child: Center(
           child: FilledButton(onPressed: () async {
             final api = MPesaApi();
-            final credentials = await api.getAccessToken();
-            print('------------CREDENTIALS!!!!! : ${credentials}');
+            await api.sendSTKPush();
 
           }, child: Text('Make API Request')),
         ),
