@@ -24,6 +24,8 @@ class MPesaApi {
     final basicAuth =
         'Basic ${base64Encode(utf8.encode('$consumerKey:$consumerSecret'))}';
 
+    final dio = Dio();
+
     //  getting credentials to get access Token
     final credentials = await dio.get(
         'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials',
@@ -45,9 +47,9 @@ class MPesaApi {
     const passKey =
         'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919';
 
-    final timeStamp = getCurrentTimestamp();
+    final timeStamp = DateFormat('yyyyMMddHHmmss').format(DateTime.now());
 
-    final passwordGenerator =
+    final encodedPassword =
         base64Encode(utf8.encode('174379$passKey$timeStamp'));
 
     final response = await dio.post(
@@ -55,7 +57,7 @@ class MPesaApi {
         data: {
           //  Buy Goods / Paybill Number
           "BusinessShortCode": 174379,
-          "Password": passwordGenerator,
+          "Password": encodedPassword,
           "Timestamp": timeStamp,
           // CustomerPayBillOnline for paybill or CustomerBuyGoodsOnline for buy goods
           "TransactionType": "CustomerPayBillOnline",

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lipa_sasa/home_page.dart';
+import 'package:lipa_sasa/checkout_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomePage(),
+      home: CheckoutPage(),
       debugShowCheckedModeBanner: false,
     );
   }

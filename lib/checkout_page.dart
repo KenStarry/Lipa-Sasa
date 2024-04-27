@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:lipa_sasa/mpesa_api.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class CheckoutPage extends StatefulWidget {
+  const CheckoutPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<CheckoutPage> createState() => _CheckoutPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _CheckoutPageState extends State<CheckoutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +20,6 @@ class _HomePageState extends State<HomePage> {
           child: FilledButton(onPressed: () async {
             final api = MPesaApi();
             await api.sendSTKPush();
-
           }, child: Text('Make API Request')),
         ),
       ),
