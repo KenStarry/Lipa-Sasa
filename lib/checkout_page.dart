@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lipa_sasa/mpesa_api.dart';
+import 'package:lipa_sasa/receipt.dart';
 
 class CheckoutPage extends StatefulWidget {
   const CheckoutPage({super.key});
@@ -16,11 +17,18 @@ class _CheckoutPageState extends State<CheckoutPage> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        child: Center(
-          child: FilledButton(onPressed: () async {
-            final api = MPesaApi();
-            await api.sendSTKPush();
-          }, child: Text('Make API Request')),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Receipt(),
+            Center(
+              child: FilledButton(onPressed: () async {
+                final api = MPesaApi();
+                await api.sendSTKPush();
+              }, child: Text('Make API Request')),
+            ),
+          ],
         ),
       ),
     );
