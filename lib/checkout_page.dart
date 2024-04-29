@@ -21,7 +21,6 @@ class _CheckoutPageState extends State<CheckoutPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Receipt(),
             Center(
               child: FilledButton(onPressed: () async {
                 final api = MPesaApi();

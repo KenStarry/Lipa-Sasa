@@ -9,6 +9,13 @@ class Receipt extends StatefulWidget {
 }
 
 class _ReceiptState extends State<Receipt> {
+  final Map<String, dynamic> receiptDetails = {
+    "Ref Number": "000043 433 44343",
+    "Date": "23 Feb 2024",
+    "Payment Method": "M-Pesa",
+    "Sender Name": "Username",
+  };
+
   //  receipt extra details
   Widget detailCard({required String title, required String description}) =>
       Container(
@@ -18,7 +25,7 @@ class _ReceiptState extends State<Receipt> {
         decoration: BoxDecoration(
             color: Colors.transparent,
             borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: Colors.grey.withOpacity(0.3), width: 1)),
+            border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,7 +92,7 @@ class _ReceiptState extends State<Receipt> {
 
                       const SizedBox(height: 32),
 
-                      Divider(height: 1, color: Colors.grey.withOpacity(0.3)),
+                      Divider(height: 1, color: Colors.grey.withOpacity(0.2)),
 
                       const SizedBox(height: 24),
 
@@ -120,10 +127,10 @@ class _ReceiptState extends State<Receipt> {
                                             crossAxisSpacing: 8,
                                             mainAxisExtent: 70,
                                             mainAxisSpacing: 8),
-                                    itemCount: 4,
+                                    itemCount: receiptDetails.entries.length,
                                     itemBuilder: (context, index) => detailCard(
-                                        title: "Hello",
-                                        description: "Hey there")))
+                                        title: receiptDetails.keys.toList()[index],
+                                        description: receiptDetails.values.toList()[index])))
                           ],
                         ),
                       )),
