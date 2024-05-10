@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "852699151396",
+    "project_id": "lipa-sasa-40155",
+    "storage_bucket": "lipa-sasa-40155.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852699151396:android:912aecf95f08e1fe77ecb1",
+        "android_client_info": {
+          "package_name": "com.kenstarry.lipa_sasa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8tB1kyGIAa728Vb_Jb2xzAGfJNpWYuiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
