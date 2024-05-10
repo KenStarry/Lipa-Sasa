@@ -1,1 +1,35 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"lipa-sasa-40155","appId":"1:852699151396:android:912aecf95f08e1fe77ecb1","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"lipa-sasa-40155","configurations":{"android":"1:852699151396:android:912aecf95f08e1fe77ecb1","ios":"1:852699151396:ios:1dd91b8b298b747f77ecb1"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "lipa-sasa-40155",
+          "appId": "1:852699151396:android:912aecf95f08e1fe77ecb1",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "lipa-sasa-40155",
+          "configurations": {
+            "android": "1:852699151396:android:912aecf95f08e1fe77ecb1",
+            "ios": "1:852699151396:ios:1dd91b8b298b747f77ecb1"
+          }
+        }
+      }
+    }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ]
+    }
+  ]
+}
