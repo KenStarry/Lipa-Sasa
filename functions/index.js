@@ -1,19 +1,46 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
+let functions = require('firebase-functions');
 
-const {onRequest} = require("firebase-functions/v2/https");
-const logger = require("firebase-functions/logger");
+let admin = require('firebase-admin');
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+admin.initializeApp(functions.config().firebase);
+const express = require('express');
+const bodyParser = require('body-parser');
 
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+//Initialize our web App
+const app = express();
+app.use(bodyParser.json());
+app.disable('x-powered-by');
+
+
+//This is our actual callback url `Format will be www.example.com/api/myCallbackUrl`
+app.post('/lipaSasaCallbackUrl', (req, res) => {
+    let response = {
+        "ResultCode": 0,
+        "ResultDesc": "Success"
+    }
+    //Send response back to safaricom that payload has been received successfully
+    res.status(200).json(response);
+
+      //Then handle data through above received payload as per your app logic.
+    let body = req.body;
+    let payload = JSON.stringify(body)
+
+      console.log(payload)
+
+    let id =  body.Body.stkCallback.CheckoutRequestID
+
+      const payloadSend = {
+            data: {
+                payload,
+            },
+             topic: id
+        };
+
+         return admin.messaging().send(payloadSend).catch(error=>{
+         console.error(error)
+         })
+
+
+})
+
+exports.api = functions.https.onRequest(app);
