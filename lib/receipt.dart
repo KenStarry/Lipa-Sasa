@@ -129,8 +129,10 @@ class _ReceiptState extends State<Receipt> {
                                             mainAxisSpacing: 8),
                                     itemCount: receiptDetails.entries.length,
                                     itemBuilder: (context, index) => detailCard(
-                                        title: receiptDetails.keys.toList()[index],
-                                        description: receiptDetails.values.toList()[index])))
+                                        title:
+                                            receiptDetails.keys.toList()[index],
+                                        description: receiptDetails.values
+                                            .toList()[index])))
                           ],
                         ),
                       )),
